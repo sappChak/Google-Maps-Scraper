@@ -3,7 +3,7 @@ from tabulate import tabulate
 
 
 def get_places_table(place_coordinates: str, place_radius, keyword: str, limit: int):
-    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={place_coordinates}&radius={place_radius}&keyword={keyword}&key=AIzaSyAuFlBfY0G-N7voGx7ckRwlWuGWShRyDz4 "
+    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={place_coordinates}&radius={place_radius}&keyword={keyword}&key=YOUR_KEY_HERE"
 
     response = requests.request("GET", url).json()
 
