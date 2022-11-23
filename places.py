@@ -4,7 +4,7 @@ from tabulate import tabulate
 
 
 def get_places_table(place_coordinates: str, place_radius, keyword: str, limit: int):
-    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={place_coordinates}&radius={place_radius}&keyword={keyword}&key=AIzaSyAuFlBfY0G-N7voGx7ckRwlWuGWShRyDz4"
+    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={place_coordinates}&radius={place_radius}&keyword={keyword}&key=YOUR_KEY_HERE"
 
     response = request("GET", url).json()
     result = response['results']
@@ -12,7 +12,7 @@ def get_places_table(place_coordinates: str, place_radius, keyword: str, limit: 
     full_results = [result]
     time.sleep(2)
     while True:
-        next_url = f'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={next_page_token}&key=AIzaSyAuFlBfY0G-N7voGx7ckRwlWuGWShRyDz4'
+        next_url = f'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={next_page_token}&key=YOUR_KEY_HERE'
         next_request = request("GET", next_url).json()
         if 'next_page_token' in next_request:
             full_results.append(next_request['results'])
